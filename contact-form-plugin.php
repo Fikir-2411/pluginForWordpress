@@ -27,6 +27,8 @@
        $to = 'fikirmuluken@gmail.com';
        $subject = 'Contact Form Submitted';
        $comment = ''.$name.' - '.$email.' - '.$message;
+       echo $name,$email,$message;
+       echo $to,$subject,$comment;
 
        wp_mail($to,$subject,$comment);
     }
