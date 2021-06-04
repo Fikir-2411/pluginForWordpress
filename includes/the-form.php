@@ -7,7 +7,7 @@
 <div class="fish" id="fish"></div>
 <div class="fish" id="fish2"></div>
 
-<form id="waterform" method="post">
+<form id="waterform" method="post" action="http://localhost/wordpress/thanks/">
 
 <div class="formgroup" id="name-form">
     <label for="name">Your name*</label>
@@ -24,6 +24,6 @@
     <textarea id="message" name="message"></textarea>
 </div>
 
-	<input type="submit" value="Send your message!" />
+	<input type="submit" name="rd_form_submit" value="Send your message!" />
 </form>
 </div>

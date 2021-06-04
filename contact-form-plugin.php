@@ -18,21 +18,21 @@
  add_shortcode('rd_form','rd_contact_plugin');
 
 
- function rd_addMenu()
-{
+ function rd_form_capture(){
+    if (isset($_POST['rd_form_submit'])){
+       $name = sanitize_text_field($_POST['name']);
+       $email = sanitize_text_field($_POST['email']);
+       $message = sanitize_textarea_field($_POST['message']);
 
-    add_menu_page(
-        'Contact Form',
-        'Contact Form',
-        'manage_options',
-        'contact-form',
-        'displayCode',
-        'dashicons-feedback'
-    );
+       $to = 'fikirmuluken@gmail.com';
+       $subject = 'Contact Form Submitted';
+       $comment = ''.$name.' - '.$email.' - '.$message;
 
-}
+       wp_mail($to,$subject,$comment);
+    }
+ }
 
-add_action('admin_menu','rd_addMenu');
+ add_action('wp_head','rd_form_capture');
 
 
 function rd_loadAssets(){
